@@ -273,22 +273,22 @@ def fight(monster):
             print("{:<25}{:>25}".format(myPlayer.weapon, monster.weapon))
             print("{:<25}{:>25}".format(myPlayer.armor, monster.armor))
             print("=" * linecount)
-            style = input("Choose attack (Aggressive / Defensive)\n>")
+            style = input("Choose attack: Aggressive (agg) / Defensive (def)\n>")
             os.system('clear')
-            if style.lower() == "aggressive":
+            if style.lower() in ["aggressive", "agg"]:
                 myPlayer.attack = int(myPlayer.attack) + int(1)
                 player_attack(monster)
-            elif style.lower() == "defensive":
+            elif style.lower() in ["defensive", "def"]:
                 myPlayer.defense = int(myPlayer.defense) + int(1)
                 player_attack(monster)
-            while style.lower() not in ["aggressive", "defensive"]:
+            while style.lower() not in ["aggressive", "agg", "defensive", "def"]:
                 print("Please choose 'aggressive' or 'defensive'...")
                 style = input("> ")
                 os.system('clear')
-                if style.lower() == "aggressive":
+                if style.lower() in ["aggressive", "agg"]:
                     myPlayer.attack = int(myPlayer.attack) + int(1)
                     player_attack(monster)
-                elif style.lower() == "defensive":
+                elif style.lower() in ["defensive", "def"]:
                     myPlayer.defense = int(myPlayer.defense) + int(1)
                     player_attack(monster)
             monster_attack(monster)
@@ -311,18 +311,18 @@ def fight(monster):
             print("{:<25}{:>25}".format(myPlayer.weapon, monster.weapon))
             print("{:<25}{:>25}".format(myPlayer.armor, monster.armor))
             print("=" * linecount)
-            style = input("Choose attack (Aggressive / Defensive / Flee)\n>")
+            style = input("Choose attack: Aggressive (agg) / Defensive (def) / Flee\n>")
             os.system('clear')
-            if style.lower() == "aggressive":
+            if style.lower() in ["aggressive", "agg"]:
                 myPlayer.attack = int(myPlayer.attack) + int(1)
                 player_attack(monster)
-            elif style.lower() == "defensive":
+            elif style.lower() in ["defensive", "def"]:
                 myPlayer.defense = int(myPlayer.defense) + int(1)
                 player_attack(monster)
             elif style.lower() == "flee":
                 input("You flee the battle. Press Enter to Continue...")
                 main_loop()
-            while style.lower() not in ["aggressive", "defensive", "flee"]:
+            while style.lower() not in ["aggressive", "defensive", "flee", "agg", "def"]:
                 print("Please choose 'aggressive' or 'defensive'...")
                 style = input("> ")
                 os.system('clear')
@@ -516,11 +516,11 @@ def trainloot(monster):
         elif 60 < roll <= 90:
             Potions.greater_heal = (Potions.greater_heal + 1)
             Potions.greater_combat = (Potions.greater_combat + 1)
-            print("[+] Gained 1 Healing Potion\n[+] Gained 1 Combat Potion")
+            print("[+] Gained 1 Greater Healing Potion\n[+] Gained 1 Greater Combat Potion")
         elif roll > 90:
             Potions.greater_heal = (Potions.greater_heal + 3)
             Potions.greater_combat = (Potions.greater_combat + 3)
-            print("[+] Gained 1 Greater Healing Potion\n[+] Gained 1 Greater Combat Potion")
+            print("[+] Gained 3 Greater Healing Potion\n[+] Gained 3 Greater Combat Potion")
     input("Press Enter to Continue...")
     main_loop()
 
